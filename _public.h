@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 // 返回两个数字的最大值
 int max(const int num1, const int num2);
 
