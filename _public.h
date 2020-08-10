@@ -18,6 +18,7 @@ int ATOI(const char *nptr);
 // 并且在碰到非数字字符会直接跳过，不会结束转换
 long ATOL(const char *nptr);
 
+// 弥补库函数的缺陷，解决dest的初始化和内存越界的问题
 char *STRCPY(char* dest,const size_t destsize,const char* src);
 char *STRNCPY(char* dest,const size_t destsize,const char* src,size_t n);
 char *STRCAT(char* dest,const size_t destsize,const char* src);

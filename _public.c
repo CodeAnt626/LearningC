@@ -81,10 +81,20 @@ long ATOL(const char *nptr)
 
   return result;
 }
+
 char *STRCPY(char* dest,const size_t destsize,const char* src)
 {
-    
+    size_t len = 0;
+    while(len < destsize)
+    {
+        dest[len] = src[len];
+        len++;
+    }
+    dest[len - 1] = 0;
+
+    return dest;
 }
+
 char *STRNCPY(char* dest,const size_t destsize,const char* src,size_t n);
 char *STRCAT(char* dest,const size_t destsize,const char* src);
 char *STRNCAT(char* dest,const size_t destsize,const char* src,size_t n);
