@@ -89,8 +89,12 @@ char *STRCPY(char* dest,const size_t destsize,const char* src)
     {
         dest[len] = src[len];
         len++;
+        if(src[len] == 0) break;
     }
-    dest[len - 1] = 0;
+    if(len == destsize)
+        dest[len - 1] = 0;
+    else
+        dest[len] = 0;
 
     return dest;
 }
