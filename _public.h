@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 // 返回两个数字的最大值
 int max(const int num1, const int num2);
@@ -18,8 +19,56 @@ int ATOI(const char *nptr);
 // 并且在碰到非数字字符会直接跳过，不会结束转换
 long ATOL(const char *nptr);
 
-// 弥补库函数的缺陷，解决dest的初始化和内存越界的问题
-char *STRCPY(char* dest,const size_t destsize,const char* src);
-char *STRNCPY(char* dest,const size_t destsize,const char* src,size_t n);
-char *STRCAT(char* dest,const size_t destsize,const char* src);
-char *STRNCAT(char* dest,const size_t destsize,const char* src,size_t n);
+// 安全的strcpy函数。
+// dest：目标字符串，不需要初始化，在STRCPY函数中会对它进行初始化。
+// destlen：目标字符串dest占用内存的大小。
+// src：原字符串。
+// 返回值：目标字符串dest的地址。
+char *STRCPY(char* dest,const size_t destlen,const char* src);
+
+// 安全的strncpy函数。
+// dest：目标字符串，不需要初始化，在STRNCPY函数中会对它进行初始化。
+// destlen：目标字符串dest占用内存的大小。
+// src：原字符串。
+// n：待复制的字节数。
+// 返回值：目标字符串dest的地址。
+char *STRNCPY(char* dest,const size_t destlen,const char* src,size_t n);
+
+// 安全的strcat函数。
+// dest：目标字符串。
+// destlen：目标字符串dest占用内存的大小。
+// src：待追加的字符串。
+// 返回值：目标字符串dest的地址。
+char *STRCAT(char* dest,const size_t destlen,const char* src);
+
+// 安全的strncat函数。
+// dest：目标字符串。
+// destlen：目标字符串dest占用内存的大小。
+// src：待追加的字符串。
+// n：待追加的字节数。
+// 返回值：目标字符串dest的地址。
+char *STRNCAT(char* dest,const size_t destlen,const char* src,size_t n);
+
+// 删除字符串左边指定的字符。
+// str：待处理的字符串。
+// chr：需要删除的字符。
+void DeleteLChar(char *str,const char chr);
+
+// 删除字符串右边指定的字符。
+// str：待处理的字符串。
+// chr：需要删除的字符。
+void DeleteRChar(char *str,const char chr);
+
+// 删除字符串左右两边指定的字符。
+// str：待处理的字符串。
+// chr：需要删除的字符。
+void DeleteLRChar(char *str,const char chr);
+
+// 把字符串中的小写字母转换成大写，忽略不是字母的字符。
+// str：待转换的字符串，支持char[]和string两种类型。
+void ToUpper(char *str);
+
+// 把字符串中的大写字母转换成小写，忽略不是字母的字符。
+// str：待转换的字符串，支持char[]和string两种类型。
+void ToLower(char *str);
+
