@@ -47,15 +47,19 @@ int main()
     double weight=0;
 
     GetXMLBuffer_Str(strXMLBuffer,"name",name); // name的内容将是"西施"
-//    GetXMLBuffer_Int(strXMLBuffer,"age",&age); // age的内容将是18
+    GetXMLBuffer_Int(strXMLBuffer,"age",&age); // age的内容将是18
 //    GetXMLBuffer_Double(strXMLBuffer,"sc",&weight); // weight的内容将是48.5
-//    printf("name=%s,age=%d\n",girl.name,girl.age);
+    printf("name=%s,age=%d\n",girl.name,girl.age);
     printf("name = %s\n", girl.name);
     return 0;
 }
 
 int GetXMLBuffer_Int(const char *in_XMLBuffer,const char *in_FieldName,int *out_Value)
 {
+    char strvalue[51];
+    memset(strvalue, 0, sizeof(strvalue));
+    if(GetXMLBuffer_Str(in_XMLBuffer,in_FieldName,strvalue) != 0) return -1;
+    *out_Value = atoi(strvalue);
     return 0;
 }
 
