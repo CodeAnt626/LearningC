@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 // 返回两个数字的最大值
 int max(const int num1, const int num2);
@@ -72,3 +73,11 @@ void ToUpper(char *str);
 // str：待转换的字符串，支持char[]和string两种类型。
 void ToLower(char *str);
 
+// 解析XML字符串的函数族，支持int、char *和double三种类型。
+// 返回值：0-成功，-1-失败。
+// in_XMLBuffer，XML格式的字符串
+// in_FieldName，字段的标签名
+// out_Value，获取内容存放的变量的指针
+int GetXMLBuffer_Int(const char *in_XMLBuffer,const char *in_FieldName,int *out_Value);
+int GetXMLBuffer_Str(const char *in_XMLBuffer,const char *in_FieldName,char *out_Value);
+int GetXMLBuffer_Double(const char *in_XMLBuffer,const char *in_FieldName,double *out_Value);

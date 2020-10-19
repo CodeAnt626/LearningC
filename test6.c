@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "stdlib.h"
+#include "_public.h"
 
 struct st_girl
 {
@@ -18,9 +18,9 @@ struct st_girl
 // in_XMLBuffer，XML格式的字符串
 // in_FieldName，字段的标签名
 // out_Value，获取内容存放的变量的指针
-int GetXMLBuffer_Int(const char *in_XMLBuffer,const char *in_FieldName,int *out_Value);
-int GetXMLBuffer_Str(const char *in_XMLBuffer,const char *in_FieldName,char *out_Value);
-int GetXMLBuffer_Double(const char *in_XMLBuffer,const char *in_FieldName,double *out_Value);
+//int GetXMLBuffer_Int(const char *in_XMLBuffer,const char *in_FieldName,int *out_Value);
+//int GetXMLBuffer_Str(const char *in_XMLBuffer,const char *in_FieldName,char *out_Value);
+//int GetXMLBuffer_Double(const char *in_XMLBuffer,const char *in_FieldName,double *out_Value);
 
 int main()
 {
@@ -52,7 +52,7 @@ int main()
     printf("name=%s,age=%d,\nheight=%d,weight=%0.1lf,\nsc=%s,yz=%s",girl.name,girl.age,girl.height,girl.weight,girl.sc,girl.yz);
     return 0;
 }
-
+/*
 int GetXMLBuffer_Int(const char *in_XMLBuffer,const char *in_FieldName,int *out_Value)
 {
     char strvalue[51];
@@ -98,3 +98,4 @@ int GetXMLBuffer_Double(const char *in_XMLBuffer,const char *in_FieldName,double
     *out_Value = atof(strvalue);
     return 0;
 }
+*/

@@ -203,3 +203,48 @@ void ToLower(char *str)
     if ( (str[ii] >= 'A') && (str[ii] <= 'Z') ) str[ii]=str[ii] + 32;
   }
 }
+int GetXMLBuffer_Int(const char *in_XMLBuffer,const char *in_FieldName,int *out_Value)
+{
+    char strvalue[51];
+    memset(strvalue, 0, sizeof(strvalue));
+    if(GetXMLBuffer_Str(in_XMLBuffer,in_FieldName,strvalue) != 0) return -1;
+    *out_Value = atoi(strvalue);
+    return 0;
+}
+
+int GetXMLBuffer_Str(const char *in_XMLBuffer,const char *in_FieldName,char *out_Value)
+{
+    if(out_Value == NULL) return -1;
+
+    char *star = 0;                         // 第一次出现标签字符串的位置
+    char *end = 0;                          // 最后一次出现标签字符串的位置
+
+    int nameLen = strlen(in_FieldName);     // 被查找字段的标签的长度
+    int valueLen;                           // 被查找字段的长度
+
+    star = strstr(in_XMLBuffer,in_FieldName);
+
+    if(star != 0){
+        end = strstr(star + 1, in_FieldName);
+    }
+
+    if(star == 0 || end == 0) return -1;
+
+    valueLen = end - star - nameLen - 3;
+
+    strncpy(out_Value, star + nameLen + 3, valueLen);
+
+    out_Value[valueLen] = 0;
+
+    return 0;
+    
+}
+
+int GetXMLBuffer_Double(const char *in_XMLBuffer,const char *in_FieldName,double *out_Value)
+{
+    char strvalue[51];
+    memset(strvalue, 0, sizeof(strvalue));
+    if(GetXMLBuffer_Str(in_XMLBuffer,in_FieldName,strvalue) != 0) return -1;
+    *out_Value = atof(strvalue);
+    return 0;
+}
