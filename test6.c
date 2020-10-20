@@ -49,7 +49,7 @@ int main()
     GetXMLBuffer_Str(strXMLBuffer,"name",name); // name的内容将是"西施"
     GetXMLBuffer_Int(strXMLBuffer,"age",&age); // age的内容将是18
     GetXMLBuffer_Double(strXMLBuffer,"sc",&weight); // weight的内容将是48.5
-    printf("name=%s,age=%d,\nheight=%d,weight=%0.1lf,\nsc=%s,yz=%s",girl.name,girl.age,girl.height,girl.weight,girl.sc,girl.yz);
+    printf("name=%s,age=%d,\nheight=%d,weight=%0.1lf,\nsc=%s,yz=%s\n",girl.name,girl.age,girl.height,girl.weight,girl.sc,girl.yz);
     return 0;
 }
 /*
